@@ -4,8 +4,8 @@ import { NextUIProvider } from "@nextui-org/system";
 
 import App from "./App";
 
-import "./styles/tailwind.css";
-import "./styles/global.scss";
+import "./Styles/tailwind.css";
+import "./Styles/global.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
