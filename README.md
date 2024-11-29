@@ -2,6 +2,9 @@
 
 Examen Final de Frontend III
 
+Lorenzo Fares
+Jeisson Gavilán
+
 ## Indice
 
 - [Requisitos](#requisitos)
