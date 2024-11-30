@@ -1,12 +1,12 @@
-import React from 'react'
+import logo from "/DH.ico";
 
 const Footer = () => {
-  return (
-    <footer>
-        <p>Powered by</p>
-        <img src="./img/DH.png" alt='DH-logo' />
-    </footer>
-  )
-}
+    return (
+        <footer>
+            <p>Powered by</p>
+            <img src={logo} alt="DH-logo" />
+        </footer>
+    );
+};
 
-export default Footer
+export default Footer;
