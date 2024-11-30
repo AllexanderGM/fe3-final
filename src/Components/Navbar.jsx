@@ -1,3 +1,5 @@
+import { useContext } from "react";
+
 import {
     Navbar as NextUiNavbar,
     NavbarBrand,
@@ -13,27 +15,30 @@ import { Link } from "react-router-dom";
 
 import logo from "/DH.ico";
 
+import { ContextGlobal } from "./utils/global.context";
 //Este componente deberá ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
+    const { dispatch } = useContext(ContextGlobal);
+
     const menuItems = [
         {
-            name: "Home",
+            name: "Inicio",
             url: "/",
         },
         {
-            name: "Detail",
-            url: "/detail",
-        },
-        {
-            name: "Favs",
+            name: "Destacados",
             url: "/favs",
         },
         {
-            name: "Contact",
+            name: "Contacto",
             url: "/contact",
         },
     ];
+
+    const handlerDarkMode = () => {
+        dispatch({ type: "THEME" });
+    };
 
     return (
         <NextUiNavbar disableAnimation isBordered>
@@ -70,7 +75,7 @@ const Navbar = () => {
 
             <NavbarContent justify="end">
                 <NavbarItem>
-                    <Button as={Link} color="warning" to="#" variant="flat">
+                    <Button as={Link} color="warning" to="#" variant="flat" onClick={handlerDarkMode}>
                         <span className="material-symbols-outlined">dark_mode</span>
                     </Button>
                 </NavbarItem>
