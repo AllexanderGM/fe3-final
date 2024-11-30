@@ -1,5 +1,7 @@
 import React, { useReducer } from "react";
-import Card from "./Card";
+import {Input} from "@nextui-org/react";
+import {Button} from "@nextui-org/react";
+import Message from "./Message";
 
 const initialState = {
     name: "",
@@ -40,22 +42,18 @@ const Form = () => {
     return (
         <div>
             {state.mostrar ? (
-                <Card name={state.name} email={state.email} />
+                <Message name={state.name}/>
             ) : (
-                <form className={FormModule} onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <label><b>Name:</b></label>
-                    <input
-                        type="text"
-                        value={state.name}
-                        onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
-                    />
+                    <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+                        <Input value={state.name} type="text" onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}placeholder="Enter your name" />
+                      </div>
                     <label><b>Email:</b></label>
-                    <input
-                        type="text"
-                        value={state.email}
-                        onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
-                    />
-                    <button>Enviar Formulario</button>
+                        <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+                        <Input value={state.email} type="email" onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}placeholder="Enter your email" />
+                      </div>
+                      <Button type="submit" color="primary">Enviar Formulario</Button>
                     {state.error && <p style={{ color: "red" }}>Por favor chequea que la información sea correcta</p>}
                 </form>
             )}
