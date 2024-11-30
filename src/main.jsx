@@ -9,9 +9,9 @@ import "./Styles/global.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <StrictMode>
-    <NextUIProvider>
-      <App />
-    </NextUIProvider>
-  </StrictMode>
+    <StrictMode>
+        <NextUIProvider>
+            <App />
+        </NextUIProvider>
+    </StrictMode>
 );
