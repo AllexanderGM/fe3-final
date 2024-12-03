@@ -1,17 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { PropTypes } from "prop-types";
-import {
-    Card as CardNextUi,
-    Link as LinkNextUi,
-    CardHeader,
-    CardBody,
-    CardFooter,
-    Avatar,
-    Button,
-} from "@nextui-org/react";
+import { Card as CardNextUi, CardHeader, CardBody, CardFooter, Avatar, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
+import doctorImg from "/images/doctor.jpg";
+
 const Card = ({ user }) => {
+    const [isFollowed, setIsFollowed] = useState(false);
+
     const addFav = () => {
         const storedCards = JSON.parse(localStorage.getItem("favoriteCards")) || [];
         const isAlreadyFavorite = storedCards.some((card) => card.id === user.id);
@@ -24,30 +20,11 @@ const Card = ({ user }) => {
         setIsFollowed(!isFollowed);
     };
 
-    const [image, setImage] = useState();
-
-    useEffect(() => {
-        const callApi = async (urlApi) => {
-            try {
-                const response = await fetch(urlApi);
-                const data = await response.json();
-
-                setImage(data.results[0].picture.large);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        callApi("https://randomuser.me/api/");
-    }, []);
-
-    const [isFollowed, setIsFollowed] = useState(false);
-
     return (
         <CardNextUi className="min-w-[300px] p-1">
             <CardHeader className="justify-between">
                 <div className="flex gap-5 w-full">
-                    <Avatar isBordered radius="full" size="lg" src={image} />
+                    <Avatar isBordered radius="full" size="lg" src={doctorImg} />
                     <div className="flex flex-col gap-1 items-start justify-center">
                         <h4 className="text-small font-semibold leading-none text-default-600">{user.username}</h4>
                         <h5 className="text-small tracking-tight text-default-400">{user.email}</h5>
@@ -87,20 +64,6 @@ const Card = ({ user }) => {
             <CardBody className="px-3 text-small text-default-400">
                 <div className="flex flex-col gap-1 items-start justify-center">
                     <h4 className="text-small font-semibold leading-none text-default-600">{user.name}</h4>
-                    <h4 className="flex gap-1 text-small tracking-tight text-default-400">
-                        <span className="material-symbols-outlined">location_on</span>
-                        {user.address.city} - {user.address.street}
-                    </h4>
-                    <h5 className="flex gap-1  text-small tracking-tight text-default-400">
-                        <span className="material-symbols-outlined">call</span>
-                        {user.phone}
-                    </h5>
-                    <h5 className="flex gap-1  text-small tracking-tight text-default-400">
-                        <span className="material-symbols-outlined">link</span>
-                        <LinkNextUi isExternal href="https://github.com/nextui-org/nextui">
-                            Custom Icon
-                        </LinkNextUi>
-                    </h5>
                 </div>
             </CardBody>
             <CardFooter className="gap-3">
