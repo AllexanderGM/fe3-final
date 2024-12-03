@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ContextGlobal } from "../Components/utils/global.context";
 import { PropTypes } from "prop-types";
 import { Card as CardNextUi, CardHeader, CardBody, CardFooter, Avatar, Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
@@ -7,16 +8,14 @@ import doctorImg from "/images/doctor.jpg";
 
 const Card = ({ user }) => {
     const [isFollowed, setIsFollowed] = useState(false);
+    const { dispatch } = useContext(ContextGlobal);
 
     const addFav = () => {
-        const storedCards = JSON.parse(localStorage.getItem("favoriteCards")) || [];
-        const isAlreadyFavorite = storedCards.some((card) => card.id === user.id);
-
-        let updatedCards = isAlreadyFavorite
-            ? storedCards.filter((card) => card.id !== user.id)
-            : [...storedCards, user];
-
-        localStorage.setItem("favoriteCards", JSON.stringify(updatedCards));
+        const addUser = {
+            ...user,
+            checked: !isFollowed,
+        };
+        dispatch({ type: "FAV_DATA", payload: addUser });
         setIsFollowed(!isFollowed);
     };
 
@@ -32,7 +31,7 @@ const Card = ({ user }) => {
 
                     <Button
                         className={
-                            isFollowed
+                            isFollowed || user.checked
                                 ? "m-auto p-1.5"
                                 : "bg-transparent text-foreground border-default-200 m-auto p-1.5"
                         }
@@ -40,8 +39,8 @@ const Card = ({ user }) => {
                         color="danger"
                         radius="full"
                         size="sm"
-                        variant={isFollowed ? "solid" : "bordered"}
-                        onPress={addFav}
+                        variant={isFollowed || user.checked ? "solid" : "bordered"}
+                        onClick={addFav}
                     >
                         <svg
                             width="24"
@@ -68,9 +67,11 @@ const Card = ({ user }) => {
             </CardBody>
             <CardFooter className="gap-3">
                 <div className="flex gap-1">
-                    <Button color="primary" radius="full" size="sm" variant="solid">
-                        <Link to={`/detail/${user.id}`}>Ver perfil</Link>
-                    </Button>
+                    <Link to={`/detail/${user.id}`}>
+                        <Button color="primary" radius="full" size="sm" variant="solid">
+                            Ver perfil
+                        </Button>
+                    </Link>
                 </div>
             </CardFooter>
         </CardNextUi>

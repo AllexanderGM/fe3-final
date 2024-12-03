@@ -1,5 +1,4 @@
-import { useEffect, useContext } from "react";
-
+import { useContext } from "react";
 import { ContextGlobal } from "../Components/utils/global.context";
 
 import Card from "../Components/Card";
@@ -7,22 +6,9 @@ import Card from "../Components/Card";
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-    const { state, dispatch } = useContext(ContextGlobal);
-    const API = "https://jsonplaceholder.typicode.com/users";
-
-    useEffect(() => {
-        const callApi = async (urlApi) => {
-            try {
-                const response = await fetch(urlApi);
-                const data = await response.json();
-                dispatch({ type: "API_DATA", payload: data });
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
-        callApi(API);
-    }, [dispatch]);
+    const { state } = useContext(ContextGlobal);
+    /* const api_data = state.api_data.find((user) => state.fav_data.includes(user.id));
+    console.log(api_data); */
 
     return (
         <main>
