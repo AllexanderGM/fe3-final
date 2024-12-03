@@ -24,7 +24,7 @@ const Navbar = () => {
     const menuItems = [
         {
             name: "Inicio",
-            url: "/",
+            url: "/home",
         },
         {
             name: "Destacados",
