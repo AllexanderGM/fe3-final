@@ -59,3 +59,15 @@ main {
         margin: 0 auto;
     }
 }
+
+.formulario{
+    margin: auto;
+    max-width: 600px;
+    padding: 40px;
+}
+
+.formulario form{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+}
