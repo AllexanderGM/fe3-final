@@ -7,8 +7,6 @@ import Card from "../Components/Card";
 
 const Home = () => {
     const { state } = useContext(ContextGlobal);
-    /* const api_data = state.api_data.find((user) => state.fav_data.includes(user.id));
-    console.log(api_data); */
 
     return (
         <main>
