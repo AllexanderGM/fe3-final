@@ -1,133 +1,155 @@
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-        "Droid Sans", "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 main {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
 
-    padding: 40px 20px;
+  padding: 40px 20px;
 }
 
 .material-symbols-outlined {
-    font-family: "Material Symbols Outlined";
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 }
 
 .title {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 700;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .paragraph {
-    text-align: center;
-    font-size: 1.3rem;
+  text-align: center;
+  font-size: 1.3rem;
 }
 
 .card-grid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
 
-    width: 100%;
-    margin: 0 auto;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .btn {
-    padding: 0;
+  padding: 0;
 
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.btn-add-fav {
+  a {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+}
 
+.btn-add-fav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    stroke: var(--color-fav);
+    fill: transparent; /* Mejor contraste al dejar el fondo transparente */
+
+    path {
+      stroke: var(--color-fav);
+    }
+  }
+
+  &:hover {
     svg {
-        stroke: var(--color-fav);
-        fill: transparent; /* Mejor contraste al dejar el fondo transparente */
+      stroke: var(--color-fav-hover);
+    }
+  }
 
-        path {
-            stroke: var(--color-fav);
-        }
+  &[data-is-active="true"] {
+    svg {
+      stroke: var(--color-fav-active);
+      fill: var(--color-fav-active);
+    }
+  }
+}
+
+html.dark {
+  .btn-add-fav {
+    svg {
+      stroke: var(--color-icon-dark);
+      fill: var(--color-fav);
     }
 
     &:hover {
-        svg {
-            stroke: var(--color-fav-hover);
-        }
+      svg {
+        stroke: var(--color-fav-hover);
+      }
     }
 
     &[data-is-active="true"] {
-        svg {
-            stroke: var(--color-fav-active);
-            fill: var(--color-fav-active);
-        }
+      svg {
+        stroke: var(--color-fav-active);
+        fill: var(--color-fav-active);
+      }
     }
+  }
+  footer{
+    background-color: rgb(66, 66, 66);
+    color: white;
+  }
 }
 
-html.dark .btn-add-fav {
-    svg {
-        stroke: var(--color-icon-dark);
-        fill: var(--color-fav);
-    }
-
-    &:hover {
-        svg {
-            stroke: var(--color-fav-hover);
-        }
-    }
-
-    &[data-is-active="true"] {
-        svg {
-            stroke: var(--color-fav-active);
-            fill: var(--color-fav-active);
-        }
-    }
+.formulario {
+  margin: auto;
+  max-width: 600px;
+  padding: 40px;
 }
 
-.formulario{
-    margin: auto;
-    max-width: 600px;
-    padding: 40px;
+.formulario form {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+footer {
+  display: flex;
+  background-color: aliceblue;
+}
+.iconos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: auto;
 }
 
-.formulario form{
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
+.iconos img {
+  width: 32px;
 }

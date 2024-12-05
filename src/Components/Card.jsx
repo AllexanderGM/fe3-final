@@ -69,7 +69,7 @@ const Card = ({ user }) => {
             <CardFooter className="gap-3">
                 <div className="flex gap-1">
                     <Button className="btn" color="primary" radius="full" size="sm" variant="solid">
-                        <Link to={`/detail/${user.id}`}>Ver perfil</Link>
+                        <Link to={`/detail/${user.id}`}>Ver mas</Link>
                     </Button>
                 </div>
             </CardFooter>
