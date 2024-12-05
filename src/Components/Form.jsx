@@ -45,31 +45,15 @@ const Form = () => {
                 <Message name={state.name} />
             ) : (
                 <form onSubmit={handleSubmit}>
-                    <label>
-                        <b>Name:</b>
-                    </label>
+                    <label><b>Nombre:</b></label>
                     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                        <Input
-                            value={state.name}
-                            type="text"
-                            onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}
-                            placeholder="Enter your name"
-                        />
-                    </div>
-                    <label>
-                        <b>Email:</b>
-                    </label>
-                    <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                        <Input
-                            value={state.email}
-                            type="text"
-                            onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}
-                            placeholder="Enter your email"
-                        />
-                    </div>
-                    <Button type="submit" color="primary">
-                        Enviar Formulario
-                    </Button>
+                        <Input value={state.name} type="text" onChange={(e) => dispatch({ type: "SET_NAME", payload: e.target.value })}placeholder="Ingrese su nombre" />
+                        </div>
+                    <label><b>Email:</b></label>
+                        <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+                        <Input value={state.email} type="text" onChange={(e) => dispatch({ type: "SET_EMAIL", payload: e.target.value })}placeholder="Ingrese su email" />
+                        </div>
+                        <Button type="submit" color="primary">Enviar Formulario</Button>
                     {state.error && <p style={{ color: "red" }}>Por favor chequea que la información sea correcta</p>}
                 </form>
             )}
