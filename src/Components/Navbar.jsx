@@ -16,7 +16,6 @@ import { Link } from "react-router-dom";
 import logo from "/DH.ico";
 
 import { ContextGlobal } from "./utils/global.context";
-//Este componente deberá ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Navbar = () => {
     const { dispatch } = useContext(ContextGlobal);

@@ -2,10 +2,9 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell } from "@nextui-org/react";
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+
 
 const Detail = () => {
-    // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
     const { id } = useParams();
     const [user, setUser] = useState({});
 
