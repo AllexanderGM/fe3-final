@@ -28,7 +28,6 @@ const Card = ({ user }) => {
                         <h4 className="text-small font-semibold leading-none text-default-600">{user.username}</h4>
                         <h5 className="text-small tracking-tight text-default-400">{user.email}</h5>
                     </div>
-
                     <Button
                         className={
                             isFollowed || user.checked
@@ -60,6 +59,7 @@ const Card = ({ user }) => {
                         </svg>
                     </Button>
                 </div>
+                
             </CardHeader>
             <CardBody className="px-3 text-small text-default-400">
                 <div className="flex flex-col gap-1 items-start justify-center">

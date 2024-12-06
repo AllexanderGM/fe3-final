@@ -1,4 +1,8 @@
 body {
+  min-height: 100%;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -16,13 +20,11 @@ main {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 40px;
-
   padding: 40px 20px;
 }
 
@@ -142,6 +144,13 @@ html.dark {
 footer {
   display: flex;
   background-color: aliceblue;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
 }
 .iconos {
   display: flex;
@@ -152,4 +161,21 @@ footer {
 
 .iconos img {
   width: 32px;
+}
+
+.error404{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 32px;
+  padding: 20px;
+}
+
+.error404 h1{
+color: red;
+}
+
+.error404 p{
+  font-weight: lighter;
 }

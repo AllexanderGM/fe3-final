@@ -29,6 +29,7 @@ const Detail = () => {
 
     return (
         <>
+        <h1 className="title">Detalles del Dentista:</h1>
             <Table aria-label="Example static collection table">
                 <TableHeader>
                     <TableColumn>NOMBRE</TableColumn>

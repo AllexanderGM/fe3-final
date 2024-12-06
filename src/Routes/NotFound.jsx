@@ -3,9 +3,9 @@ import { Button } from "@nextui-org/react";
 
 const NotFound = () => {
     return (
-        <div>
-            <h1>404 Not Found</h1>
-
+        <div className="error404">
+            <h1 className="h1Error">404 Not Found</h1>
+            <p>La pagina a la cual queres acceder no existe</p>
             <Link to="/">
                 <Button color="primary">Volver al inicio</Button>
             </Link>
